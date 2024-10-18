@@ -1,12 +1,15 @@
 "use strict";
 function calcularIMC() {
+    //buscando os id
     const pesoInput = document.getElementById("peso");
     const alturaInput = document.getElementById("altura");
-    const resultadoDiv = document.getElementById("resultado");
+    const res = document.getElementById("resultado");
+    //convertendo para numero inteiro
     const peso = parseFloat(pesoInput.value);
     const altura = parseFloat(alturaInput.value);
+    //ver se o valor é NaN
     if (isNaN(peso) || isNaN(altura)) {
-        resultadoDiv.innerHTML = "Por favor, insira valores válidos.";
+        res.innerHTML = "Por favor, insira valores válidos.";
         return;
     }
     const imc = peso / (altura * altura);
@@ -23,6 +26,6 @@ function calcularIMC() {
     else {
         classificacao = "Obesidade";
     }
-    resultadoDiv.innerHTML = `Seu IMC é ${imc.toFixed(2)} (${classificacao}).`;
+    res.innerHTML = `Seu IMC é ${imc.toFixed(2)} (${classificacao}).`;
 }
 document.getElementById("calcularBtn").addEventListener("click", calcularIMC);
